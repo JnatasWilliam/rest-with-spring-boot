@@ -17,7 +17,6 @@ public class MathController {
 			@PathVariable(value = "numberTwo") String numberTwo) throws Exception {
 
 		return math.operacaoSoma(numberOne, numberTwo);
-
 	}
 
 	@RequestMapping(value = "/sub/{numberOne}/{numberTwo}", method = RequestMethod.GET)
@@ -46,7 +45,6 @@ public class MathController {
 			@PathVariable(value = "numberTwo") String numberTwo) throws Exception {
 
 		return math.operacaoMedia(numberOne, numberTwo);
-
 	}
 
 	@RequestMapping(value = "/raiz/{number}", method = RequestMethod.GET)
@@ -54,5 +52,4 @@ public class MathController {
 
 		return math.operacaoRaisQuadrada(numberOne);
 	}
-
 }
