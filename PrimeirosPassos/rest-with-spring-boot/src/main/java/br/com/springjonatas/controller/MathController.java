@@ -9,8 +9,7 @@ import br.com.springjonatas.util.ArithmeticOperation;
 
 @RestController
 public class MathController {
-	// private final AtomicLong counter = new AtomicLong();
-	
+
 	ArithmeticOperation math = new ArithmeticOperation();
 
 	@RequestMapping(value = "/sum/{numberOne}/{numberTwo}", method = RequestMethod.GET)
@@ -24,7 +23,7 @@ public class MathController {
 	@RequestMapping(value = "/sub/{numberOne}/{numberTwo}", method = RequestMethod.GET)
 	public Double subtraction(@PathVariable(value = "numberOne") String numberOne,
 			@PathVariable(value = "numberTwo") String numberTwo) throws Exception {
-		 
+
 		return math.operacaoSubtracao(numberOne, numberTwo);
 	}
 
