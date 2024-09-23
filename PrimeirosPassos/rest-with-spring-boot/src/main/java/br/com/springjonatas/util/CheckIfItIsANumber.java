@@ -1,6 +1,6 @@
 package br.com.springjonatas.util;
 
-import br.com.springjonatas.exception.UnsupportedMathOperationException;
+import br.com.springjonatas.exception.ResourceNotFoundException;
 
 public class CheckIfItIsANumber {
 
@@ -13,7 +13,7 @@ public class CheckIfItIsANumber {
 		String number = strNumber.replaceAll(",", ".");
 
 		if (!number.matches("[-+]?[0-9]*\\.?[0-9+]")) {
-			throw new UnsupportedMathOperationException("Please set a numeric value");
+			throw new ResourceNotFoundException("Please set a numeric value");
 		} else {
 			return number.matches("[-+]?[0-9]*\\.?[0-9+]");
 		}
