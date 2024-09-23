@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import br.com.springjonatas.model.Person;
+import br.com.springjonatas.model.entity.Person;
 import br.com.springjonatas.services.PersonServices;
 
 @RestController

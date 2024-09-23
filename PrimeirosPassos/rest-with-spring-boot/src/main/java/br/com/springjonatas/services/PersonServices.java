@@ -7,7 +7,7 @@ import java.util.logging.Logger;
 
 import org.springframework.stereotype.Service;
 
-import br.com.springjonatas.model.Person;
+import br.com.springjonatas.model.entity.Person;
 
 @Service
 public class PersonServices {
