@@ -19,7 +19,6 @@ public class PersonServices {
 	PersonRepository repository;
 
 
-	// Criando um mock para encontrar uma pessoa	
 	public List<Person> findAll() {
 		
 		logger.info("Finding all person");
@@ -27,7 +26,6 @@ public class PersonServices {
 		return repository.findAll();
 	}
 
-	// Criando um mock para encontrar uma pessoa
 	public Person findById(Long id) {
 
 		logger.info("Finding one person");
