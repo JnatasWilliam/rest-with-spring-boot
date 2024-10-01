@@ -1,5 +1,6 @@
 package br.com.springjonatas.unittests.mapper;
 
+
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import java.util.List;
@@ -14,7 +15,7 @@ import br.com.springjonatas.unittests.mapper.mocks.MockPerson;
 
 public class DozerConverterTest {
     
-    MockPerson inputObject;
+	MockPerson inputObject;
 
     @BeforeEach
     public void setUp() {
