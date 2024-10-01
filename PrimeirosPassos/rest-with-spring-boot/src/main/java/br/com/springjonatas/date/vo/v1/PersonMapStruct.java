@@ -2,7 +2,7 @@ package br.com.springjonatas.date.vo.v1;
 
 import java.io.Serializable;
 
-public class PersonVO implements Serializable {
+public class PersonMapStruct implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 
@@ -12,7 +12,7 @@ public class PersonVO implements Serializable {
 	private String address;
 	private String gender;
 	
-	public PersonVO() {}
+	public PersonMapStruct() {}
 
 	public Long getId() {
 		return id;
@@ -74,7 +74,7 @@ public class PersonVO implements Serializable {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		PersonVO other = (PersonVO) obj;
+		PersonMapStruct other = (PersonMapStruct) obj;
 		if (address == null) {
 			if (other.address != null)
 				return false;
