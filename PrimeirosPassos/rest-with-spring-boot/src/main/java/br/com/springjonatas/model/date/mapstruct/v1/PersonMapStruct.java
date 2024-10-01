@@ -1,4 +1,4 @@
-package br.com.springjonatas.date.vo.v1;
+package br.com.springjonatas.model.date.mapstruct.v1;
 
 import java.io.Serializable;
 

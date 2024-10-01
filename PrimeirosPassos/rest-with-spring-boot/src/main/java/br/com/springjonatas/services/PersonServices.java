@@ -5,9 +5,9 @@ import java.util.logging.Logger;
 
 import org.springframework.stereotype.Service;
 
-import br.com.springjonatas.date.vo.v1.PersonMapStruct;
 import br.com.springjonatas.exception.ResourceNotFoundException;
 import br.com.springjonatas.mapper.PersonMapper;
+import br.com.springjonatas.model.date.mapstruct.v1.PersonMapStruct;
 import br.com.springjonatas.repositories.PersonRepository;
 
 @Service
@@ -27,7 +27,7 @@ public class PersonServices {
 
 		logger.info("Finding all PersonVO");
 
-		return personMapper.toPersonMapStructList(repository.findAll());
+		return personMapper.toPersontList(repository.findAll());
 	}
 
 	public PersonMapStruct findById(Long id) {

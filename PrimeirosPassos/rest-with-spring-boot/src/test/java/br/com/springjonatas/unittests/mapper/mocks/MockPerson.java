@@ -3,38 +3,38 @@ package br.com.springjonatas.unittests.mapper.mocks;
 import java.util.ArrayList;
 import java.util.List;
 
-import br.com.springjonatas.date.vo.v1.PersonMapStruct;
-import br.com.springjonatas.model.entity.Person;
+import br.com.springjonatas.model.date.mapstruct.v1.PersonMapStruct;
+import br.com.springjonatas.model.entity.PersonEntity;
 
 public class MockPerson {
 
 
-    public Person mockEntity() {
+    public PersonEntity mockEntity() {
         return mockEntity(0);
     }
     
-    public PersonMapStruct mockVO() {
-        return mockVO(0);
+    public PersonMapStruct mockMapStruct() {
+        return mockMapStruct(0);
     }
     
-    public List<Person> mockEntityList() {
-        List<Person> persons = new ArrayList<Person>();
+    public List<PersonEntity> mockEntityList() {
+        List<PersonEntity> persons = new ArrayList<PersonEntity>();
         for (int i = 0; i < 14; i++) {
             persons.add(mockEntity(i));
         }
         return persons;
     }
 
-    public List<PersonMapStruct> mockVOList() {
+    public List<PersonMapStruct> mockMapStructList() {
         List<PersonMapStruct> persons = new ArrayList<>();
         for (int i = 0; i < 14; i++) {
-            persons.add(mockVO(i));
+            persons.add(mockMapStruct(i));
         }
         return persons;
     }
     
-    public Person mockEntity(Integer number) {
-        Person person = new Person();
+    public PersonEntity mockEntity(Integer number) {
+        PersonEntity person = new PersonEntity();
         person.setAddress("Addres Test" + number);
         person.setFirstName("First Name Test" + number);
         person.setGender(((number % 2)==0) ? "Male" : "Female");
@@ -43,7 +43,7 @@ public class MockPerson {
         return person;
     }
 
-    public PersonMapStruct mockVO(Integer number) {
+    public PersonMapStruct mockMapStruct(Integer number) {
         PersonMapStruct person = new PersonMapStruct();
         person.setAddress("Addres Test" + number);
         person.setFirstName("First Name Test" + number);

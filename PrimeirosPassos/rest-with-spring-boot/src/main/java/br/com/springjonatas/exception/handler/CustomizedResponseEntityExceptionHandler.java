@@ -11,7 +11,7 @@ import org.springframework.web.context.request.WebRequest;
 import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExceptionHandler;
 
 import br.com.springjonatas.exception.ResourceNotFoundException;
-import br.com.springjonatas.model.exception.ExceptionResponse;
+import br.com.springjonatas.model.exception.ExceptionModelResponse;
 
 
 @ControllerAdvice
@@ -19,10 +19,10 @@ import br.com.springjonatas.model.exception.ExceptionResponse;
 public class CustomizedResponseEntityExceptionHandler extends ResponseEntityExceptionHandler{
 	
 	@ExceptionHandler(Exception.class)
-	public final ResponseEntity<ExceptionResponse> handleAllExceptions(
+	public final ResponseEntity<ExceptionModelResponse> handleAllExceptions(
 			Exception ex, WebRequest request) {
 		
-		ExceptionResponse exceptionResponse = new ExceptionResponse(
+		ExceptionModelResponse exceptionResponse = new ExceptionModelResponse(
 				new Date(),
 				ex.getMessage(),
 				request.getDescription(false));
@@ -31,11 +31,11 @@ public class CustomizedResponseEntityExceptionHandler extends ResponseEntityExce
 	}
 	
 	@ExceptionHandler(ResourceNotFoundException.class)
-	public final ResponseEntity<ExceptionResponse> handleNotFoundExceptions(
+	public final ResponseEntity<ExceptionModelResponse> handleNotFoundExceptions(
 			Exception ex, WebRequest request) {
 		System.out.println("Handler personalizado chamado");
 		
-		ExceptionResponse exceptionResponse = new ExceptionResponse(
+		ExceptionModelResponse exceptionResponse = new ExceptionModelResponse(
 				new Date(),
 				ex.getMessage(),
 				request.getDescription(false));
