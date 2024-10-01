@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import br.com.springjonatas.model.entity.Person;
+import br.com.springjonatas.date.vo.v1.PersonVO;
 import br.com.springjonatas.services.PersonServices;
 
 @RestController
@@ -25,27 +25,27 @@ public class PersonController {
 	private PersonServices service;
 
 	@GetMapping(value = "/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
-	public Person findById(@PathVariable(value = "id") Long id) throws Exception {
+	public PersonVO findById(@PathVariable(value = "id") Long id) throws Exception {
 
 		return service.findById(id);
 	}
 
 	@GetMapping(produces = MediaType.APPLICATION_JSON_VALUE)
-	public List<Person> findAll() {
+	public List<PersonVO> findAll() {
 
 		return service.findAll();
 	}
 
 	@PostMapping(produces = MediaType.APPLICATION_JSON_VALUE, consumes = MediaType.APPLICATION_JSON_VALUE)
-	public Person create(@RequestBody Person person) {
+	public PersonVO create(@RequestBody PersonVO PersonVO) {
 
-		return service.create(person);
+		return service.create(PersonVO);
 	}
 
 	@PutMapping(produces = MediaType.APPLICATION_JSON_VALUE, consumes = MediaType.APPLICATION_JSON_VALUE)
-	public Person update(@RequestBody Person person) {
+	public PersonVO update(@RequestBody PersonVO PersonVO) {
 
-		return service.update(person);
+		return service.update(PersonVO);
 
 	}
 
