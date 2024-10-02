@@ -26,7 +26,7 @@ public class MapStructConverterTest {
 
     @Test
     public void parseEntityToVOTest() {
-    	PersonMapStruct output = personMapper.toPerson(inputObject.mockEntity());
+    	PersonMapStruct output = personMapper.toPersonMap(inputObject.mockEntity());
     	assertEquals(Long.valueOf(0L), output.getId());
         assertEquals("First Name Test0", output.getFirstName());
         assertEquals("Last Name Test0", output.getLastName());
@@ -36,7 +36,7 @@ public class MapStructConverterTest {
 
     @Test
     public void parseEntityListToVOListTest() {
-        List<PersonMapStruct> outputList = personMapper.toPersontList(inputObject.mockEntityList());
+        List<PersonMapStruct> outputList = personMapper.toPersontMapList(inputObject.mockEntityList());
         PersonMapStruct outputZero = outputList.get(0);
         
         assertEquals(Long.valueOf(0L), outputZero.getId());
@@ -64,7 +64,7 @@ public class MapStructConverterTest {
 
     @Test
     public void parseVOToEntityTest() {
-        PersonEntity output = personMapper.toPersonMap(inputObject.mockMapStruct());
+        PersonEntity output = personMapper.toPerson(inputObject.mockMapStruct());
         assertEquals(Long.valueOf(0L), output.getId());
         assertEquals("First Name Test0", output.getFirstName());
         assertEquals("Last Name Test0", output.getLastName());
@@ -74,7 +74,7 @@ public class MapStructConverterTest {
 
     @Test
     public void parserVOListToEntityListTest() {
-        List<PersonEntity> outputList = personMapper.toPersonList(inputObject.mockEntityList());
+        List<PersonEntity> outputList = personMapper.toPersontList(inputObject.mockEntityList());
         PersonEntity outputZero = outputList.get(0);
         
         assertEquals(Long.valueOf(0L), outputZero.getId());

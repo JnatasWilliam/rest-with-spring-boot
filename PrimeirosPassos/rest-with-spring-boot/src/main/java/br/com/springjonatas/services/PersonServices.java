@@ -7,7 +7,9 @@ import org.springframework.stereotype.Service;
 
 import br.com.springjonatas.exception.ResourceNotFoundException;
 import br.com.springjonatas.mapper.PersonMapper;
+import br.com.springjonatas.mapper.PersonMapperV2;
 import br.com.springjonatas.model.date.mapstruct.v1.PersonMapStruct;
+import br.com.springjonatas.model.date.mapstruct.v2.PersonMapStructV2;
 import br.com.springjonatas.repositories.PersonRepository;
 
 @Service
@@ -17,42 +19,54 @@ public class PersonServices {
 
 	private final PersonRepository repository;
 	private final PersonMapper personMapper;
+	private final PersonMapperV2 personMapperV2;
 	
-	public PersonServices(PersonRepository repository, PersonMapper personMapper ) {
+	public PersonServices(PersonRepository repository, PersonMapper personMapper,  PersonMapperV2 personMapperV2) {
         this.repository = repository;
         this.personMapper = personMapper;
+        this.personMapperV2 = personMapperV2;
     }
 
 	public List<PersonMapStruct> findAll() {
 
-		logger.info("Finding all PersonVO");
+		logger.info("Finding all PersonMapStruct");
 
-		return personMapper.toPersontList(repository.findAll());
+		return personMapper.toPersontMapList(repository.findAll());
 	}
 
 	public PersonMapStruct findById(Long id) {
 
-		logger.info("Finding one PersonVO");
+		logger.info("Finding one PersonMapStruct");
 
 		var entity = repository.findById(id)
 				.orElseThrow(() -> new ResourceNotFoundException("No records found for this ID!"));
 
-		return personMapper.toPerson(entity);
+		return personMapper.toPersonMap(entity);
 	}
 
 	public PersonMapStruct create(PersonMapStruct personMap) {
 
-		logger.info("Creating one PersonVO");
+		logger.info("Creating one PersonMapStruct");
 
-		var entity = personMapper.toPersonMap(personMap);
-		var vo = personMapper.toPerson(repository.save(entity));
+		var entity = personMapper.toPerson(personMap);
+		var mapper = personMapper.toPersonMap(repository.save(entity));
 
-		return vo;
+		return mapper;
+	}
+	
+	public PersonMapStructV2 createV2(PersonMapStructV2 personMapV2) {
+
+		logger.info("Creating one PersonMapStruct with V2!");
+
+		var entity = personMapperV2.toPerson(personMapV2);
+		var mapper = personMapperV2.toPersonMap(repository.save(entity));
+
+		return mapper;
 	}
 
 	public PersonMapStruct update(PersonMapStruct personMap) {
 
-		logger.info("Updating one PersonVO");
+		logger.info("Updating one PersonMapStruct");
 
 		var entity = repository.findById(personMap.getId())
 				.orElseThrow(() -> new ResourceNotFoundException("No records found for this ID!"));
@@ -62,9 +76,9 @@ public class PersonServices {
 		entity.setAddress(personMap.getAddress());
 		entity.setGender(personMap.getGender());
 
-		var vo = personMapper.toPerson(repository.save(entity));
+		var mapper = personMapper.toPersonMap(repository.save(entity));
 
-		return vo;
+		return mapper;
 	}
 
 	public void delete(Long id) {
