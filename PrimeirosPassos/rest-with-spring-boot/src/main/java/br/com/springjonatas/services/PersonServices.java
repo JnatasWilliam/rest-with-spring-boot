@@ -6,8 +6,8 @@ import java.util.logging.Logger;
 import org.springframework.stereotype.Service;
 
 import br.com.springjonatas.exception.ResourceNotFoundException;
-import br.com.springjonatas.mapper.PersonMapper;
-import br.com.springjonatas.mapper.PersonMapperV2;
+import br.com.springjonatas.mapper.interfaces.PersonMapper;
+import br.com.springjonatas.mapper.interfaces.PersonMapperV2;
 import br.com.springjonatas.model.date.mapstruct.v1.PersonMapStruct;
 import br.com.springjonatas.model.date.mapstruct.v2.PersonMapStructV2;
 import br.com.springjonatas.repositories.PersonRepository;

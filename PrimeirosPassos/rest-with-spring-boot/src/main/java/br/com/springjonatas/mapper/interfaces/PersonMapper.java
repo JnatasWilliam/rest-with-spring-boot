@@ -1,4 +1,4 @@
-package br.com.springjonatas.mapper;
+package br.com.springjonatas.mapper.interfaces;
 
 import java.util.List;
 
