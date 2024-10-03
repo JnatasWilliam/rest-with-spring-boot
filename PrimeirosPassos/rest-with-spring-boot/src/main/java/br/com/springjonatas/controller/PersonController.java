@@ -18,7 +18,7 @@ import br.com.springjonatas.model.date.mapstruct.v2.PersonMapStructV2;
 import br.com.springjonatas.services.PersonServices;
 
 @RestController
-@RequestMapping("/person")
+@RequestMapping("/api/person/v1")
 public class PersonController {
 
 	private PersonServices service;
